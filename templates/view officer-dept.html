@@ -1,0 +1,53 @@
+
+{% extends 'indexdept.html' %}
+{% block body %}
+
+<body><head><style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#customers tr:nth-child(even){background-color: #660066 ;}*/
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color:#660066 ;
+  color: white;
+}
+</style></head>
+<form id="form1" name="form1" method="post" action="">
+  <table id="customers"  class="table" border="2" bgcolor="#ffccff">
+    <tr>
+      <th width="110">Serial Number</th>
+      <th width="97">Name</th>
+      <th width="50">Gender</th>
+      <th width="145">Phone Number </th>
+      <th width="174">Email_id</th>
+      <th width="168">Address</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.Fname}} {{i.Lname}}</td>
+      <td>{{i.gender}}</td>
+      <td>{{i.phone_number}}</td>
+      <td>{{i.email_id}}</td>
+      <td>{{i.place}}{{i.post_office}}{{i.pin_code}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+

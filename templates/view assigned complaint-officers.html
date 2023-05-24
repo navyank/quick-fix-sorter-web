@@ -1,0 +1,87 @@
+{% extends 'indexofficer.html' %}
+{% block body %}
+
+<body><head><style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#customers tr:nth-child(even){background-color: #660066;}*/
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color:#660066;
+  color: white;
+}
+</style></head>
+<form id="form1" name="form1" method="post" action="searchOComplaint#team">
+  <table id="customers"  class="table" width="832" border="1">
+    <tr>
+      <td>From date: </td>
+      <td colspan="2"><label>
+        <input type="date" name="textfield" value="{{d1}}"/>
+      </label></td>
+      <td>To date: </td>
+      <td><label>
+        <input type="date" name="textfield2" value="{{d2}}" />
+      </label></td>
+      <td><input type="submit" name="Submit" value="Search" /></td>
+      <td><label></label></td>
+    </tr>
+    <tr>
+      <th width="127">S1.No</th>
+      <th width="67">Date</th>
+      <th width="99">Complaint Photo</th>
+      <th width="58">Location</th>
+      <th width="144">Progress</th>
+      <th width="211">status of complaint </th>
+      <th width="80">&nbsp;</th>
+    </tr>
+    {% for i in val%}
+    <tr>
+      <td>&nbsp;{{forloop.counter}}</td>
+      <td>&nbsp;{{i.date}}</td>
+      <td><img src="../media/{{i.complaintid.complaint}}" width="140" height="120"></td>
+      <td>&nbsp;<a href="http://maps.google.com/maps?q={{i.latitude}},{{i.altitude}}">track location</a></td>
+              {% if i.complaintid.current_status == 'rejected' %}
+      <td>can't update</td>
+      {% else %}
+
+      <td><a href="{% url 'updatecmpoff' id=i.complaintid.id %}#team">update status</a></td>
+      {% endif %}
+       {% if i.complaintid.current_status == 'rejected' %}
+      <td>no status</td>
+      {% else %}
+
+      <td>{{i.status}} </td>
+      {% endif %}
+      <td>
+        {% if i.complaintid.current_status == 'assigned' and i.status == 'pending' %}
+        <p><a href="{% url 'reasons' id=i.complaintid.id %}#team">reject</a></p>
+        {% elif i.complaintid.current_status == 'rejected' %}
+        <p><a >rejected</a></p>
+        {% else %}
+                <p><a >assigned</a></p>
+
+        {% endif %}
+
+
+      </td>
+    </tr>
+     {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+

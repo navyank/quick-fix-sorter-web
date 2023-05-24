@@ -1,0 +1,65 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/inserteditdept">
+  <table class="table" border="2" bgcolor="#dab3ff">
+    <tr>
+      <td>Department Name: </td>
+      <td><label>
+        <input type="text" name="textfield" class="form-control" required="" value="{{ val.deptName}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Details</td>
+      <td><label>
+        <textarea name="textarea" class="form-control" required="">{{ val.details}}</textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Contact Number </td>
+      <td><label>
+        <input type="text" class="form-control" name="textfield2"required="" value="{{ val.contact_no}}"  pattern="[6-9]{1}[0-9]{9}" maxlength="10" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email Id </td>
+      <td><label>
+        <input type="text" class="form-control" required="" name="textfield3" value="{{ val.email_id}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>place</td>
+      <td><label>
+        <input type="text"required="" name="textfield4" class="form-control" value="{{ val.place}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>post office </td>
+      <td><label>
+        <input type="text" required="" class="form-control" name="textfield5" value="{{ val.post_office}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>pin code </td>
+      <td><label>
+        <input type="text" name="textfield6" class="form-control" required="" value="{{ val.pin_code}}" maxlength="6"  pattern="[6]{1}[0-9]{5}"/>
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit"  class="btn btn-success" value="Update" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

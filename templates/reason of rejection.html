@@ -1,0 +1,22 @@
+{% extends 'indexofficer.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action=" {% url 'insertreason' %}">
+  <table class="table" border="2" bgcolor="#dab3ff">
+    <tr>
+      <td>Reason:</td>
+      <td><label>
+        <input type="text" name="textfield" />
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+      <div align="center">
+        <input type="submit" name="Submit" value="Send" />
+      </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

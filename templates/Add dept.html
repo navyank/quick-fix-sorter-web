@@ -1,0 +1,80 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/insertaddep">
+  <table class="table" border="2" bgcolor="#dab3ff">
+    <tr>
+      <td>Department Name: </td>
+      <td><label>
+        <input type="text" class="form-control" required="" name="textfield" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Details</td>
+      <td><label>
+        <textarea required="" class="form-control" name="textarea"></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Contact Number </td>
+      <td><label>
+        <input type="text" class="form-control" name="textfield2" required="" pattern="[6-9]{1}[0-9]{9}" maxlength="10" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email Id </td>
+      <td><label>
+        <input type="text" name="textfield3" class="form-control" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>place</td>
+      <td><label>
+        <input type="text" class="form-control" name="textfield4" required=""/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>post office </td>
+      <td><label>
+        <input type="text" class="form-control" name="textfield5" required=""/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>pin code </td>
+      <td><label>
+        <input type="text" class="form-control" name="textfield6"maxlength="6" required="" pattern="[6]{1}[0-9]{5}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>User Name </td>
+      <td><label>
+        <input type="text" name="textfield7" class="form-control" required="" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td><label>
+        <input type="password" class="form-control" name="textfield8" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" class="btn btn-info" value="ADD" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

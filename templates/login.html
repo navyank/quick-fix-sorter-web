@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="login">
+  <table width="800" border="0" height="100">
+    <tr>
+      <td>User Name: </td>
+      <td><label>
+        <input type="text" name="textfield" required class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><label>
+        <input type="password" required name="textfield2"  class="form-control"/>
+      </label></td>
+    </tr>
+  </table>
+  <br>
+    <div align="center">
+          <input type="submit" name="Submit" value="login" class="btn btn-success"/>
+          </div>
+  <br>
+  <div align="center"><a href="/forgetpwd">forget password ?</a></div>
+</form>
+</body>
+{% endblock %}

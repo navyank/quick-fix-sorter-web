@@ -1,0 +1,45 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'indexdept.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'insertassigncomplaintoff' %}">
+  <table class="table" border="2" bgcolor="#dab3ff">
+    <tr>
+      <td>Date</td>
+      <td><label>
+       {{var.date}}
+      </label></td>
+    </tr>
+    <tr>
+      <td>Complaint</td>
+      <td><label>
+        <img src="{{var.complaint.url}}" height="100" width="100" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Officer Name </td>
+      <td><label>
+        <select name="select">
+          {% for i in val %}
+          <option value="{{i.lid.id}}">{{i.Fname}} {{i.Lname}}</option>
+          {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit"  class="btn btn-info"  value="Assign" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

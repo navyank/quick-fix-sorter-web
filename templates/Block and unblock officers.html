@@ -1,0 +1,57 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body><head><style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#customers tr:nth-child(even){background-color: #660066 ;}*/
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color:#660066 ;
+  color: white;
+}
+</style></head>
+<form id="form1" name="form1" method="post" action="">
+  <table id="customers"  class="table" border="2" bgcolor="#ffccff">
+    <tr>
+      <th width="100">serial Number </th>
+      <th width="63">Name</th>
+      <th width="65">Gender</th>
+      <th width="119">Phone Number </th>
+      <th width="86">Email_id</th>
+      <th width="91">Address</th>
+      <th width="120">&nbsp;</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.Fname}} {{i.Lname}}</td>
+      <td>{{i.gender}}</td>
+      <td>{{i.phone_number}}</td>
+      <td>{{i.email_id}}</td>
+      <td>{{i.place}}{{i.post_office}}{{i.pin_code}}</td>
+      <td> {% if i.lid.type == "officer" %}<p><a href="{% url 'blockofficer1' id=i.lid.id %}">block</a></p> {% else %}
+      <p><a href="{% url 'blockofficer2' id=i.lid.id %}">unblock</a></p> {% endif %}</td>
+    </tr>
+
+    {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}
+

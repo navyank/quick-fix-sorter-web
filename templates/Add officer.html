@@ -1,0 +1,107 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+
+<form id="form1" name="form1" method="post" action="/insertaddmofficer">
+  <table class="table" border="2" bgcolor="#dab3ff">
+    <tr>
+      <td width="79">Department: </td>
+      <td width="201" class="form-control"><label>
+        <select name="dp">
+          {% for i in val %}
+          <option value="{{i.id}}">{{i.deptName}}</option>
+          {% endfor %}
+        </select>
+      </label></td>
+    </tr> <tr>
+      <td width="79">First Name: </td>
+      <td width="201"><label>
+        <input type="text"  required pattern="[A-Z a-z.]{3,25}" title="Must contain atleast 3 to 25 characters "  name="textfield"  class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Last Name: </td>
+      <td><label>
+        <input type="text"  required pattern="[A-Z a-z.]{1,25}"  name="textfield2" class="form-control" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Date of Birth </td>
+      <td><label>
+        <input type="date" required="" name="textfield3" class="form-control"  />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td><label>
+        <input name="radiobutton" checked type="radio" value="male"  />
+      male 
+      <input name="radiobutton" type="radio" value="female" />
+      female 
+      <input name="radiobutton" type="radio" value="others" />
+      others</label></td>
+    </tr>
+    <tr>
+      <td>Phone Number: </td>
+      <td><label>
+        <input type="text" required="" pattern="[6-9]{1}[0-9]{9}" maxlength="10" name="textfield4" class="form-control"  />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email id: </td>
+      <td><label>
+        <input type="text" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" name="textfield5" class="form-control"/>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>Place:</td>
+      <td><label>
+        <input type="text" required="" name="textfield6" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Post Office: </td>
+      <td><label>
+        <input type="text"  required="" name="textfield7" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Pin Code : </td>
+      <td><label>
+        <input type="text" name="textfield8" maxlength="6" required="" pattern="[6]{1}[0-9]{5}" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>UserName:</td>
+      <td><label>
+        <input type="text" required="" name="textfield9" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><label>
+        <input type="password"  name="textfield10" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="form-control"/>
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" class="btn btn-info" value="ADD" class="form-control"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+<!--</html>-->
+
+{% endblock %}

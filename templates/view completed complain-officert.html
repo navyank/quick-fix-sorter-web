@@ -1,0 +1,61 @@
+{% extends 'indexofficer.html' %}
+{% block body %}
+
+<body><head><style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#customers tr:nth-child(even){background-color: #660066;}*/
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color:#660066;
+  color: white;
+}
+</style></head>
+<form id="form1" name="form1" method="post" action="searchCDate#team">
+  <table id="customers"  class="table" width="506" border="1">
+    <tr>
+      <td>From date: </td>
+      <td colspan="2"><label>
+        <input type="date" name="textfield" value="{{d1}}"/>
+      </label></td>
+      <td>To date: </td>
+      <td><label>
+        <input type="date" name="textfield2" value="{{d2}}"/>
+        <input type="submit" name="Submit" value="Search" />
+      </label></td>
+    </tr>
+    <tr>
+      <th width="65">S1.No</th>
+      <th width="69">Date</th>
+      <th width="70">User Name </th>
+      <th width="53">Location</th>
+      <th width="215"> Completed Complaints  </th>
+    </tr>
+     {% for i in val%}
+    <tr>
+      <td>&nbsp;{{forloop.counter}}</td>
+      <td>&nbsp;{{i.date}}</td>
+      <td>&nbsp;{{i.complaintid.userid.Fname}} {{i.complaintid.userid.Lname}}</td>
+      <td>&nbsp;<a href="http://maps.google.com/maps?q={{i.latitude}},{{i.altitude}}">track location</a></td>
+      <td><img src="../media/{{i.complaintid.complaint}}" width="140" height="120"></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+

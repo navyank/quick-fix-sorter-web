@@ -1,0 +1,59 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body><head><style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#customers tr:nth-child(even){background-color: #660066 ;}*/
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color:#660066 ;
+  color: white;
+}
+</style></head>
+<form id="form1" name="form1" method="post" action="">
+  <table id="customers"  class="table" border="2" bgcolor="#ffccff">
+    <tr>
+      <th width="87" height="47">Serial No </th>
+      <th width="63">Name</th>
+      <th width="63">Gender</th>
+      <th width="72">Email_id</th>
+      <th width="114">Phone Number  </th>
+      <th width="71">Address</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.Fname}} {{i.Lname}}</td>
+      <td>{{i.gender}}</td>
+      <td>{{i.email_id}}</td>
+      <td>{{i.phone_number}}</td>
+      <td>{{i.place}} {{i.post_office}} {{i.pin_code}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+
+</body>
+<!--</html>-->
+{% endblock %}

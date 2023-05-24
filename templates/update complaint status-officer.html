@@ -1,0 +1,66 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'indexofficer.html' %}
+{% block body %}
+<body><head><style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#customers tr:nth-child(even){background-color:#660066;}*/
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color:#660066 ;
+  color: white;
+}
+</style></head>
+<form id="form1" name="form1" method="post" action="{% url 'insertupdatecmpoff' %}">
+  <table id="customers" class="table" border="2" bgcolor="#ffccff">
+    <tr>
+      <th>Current status of complaint </th>
+    </tr>
+    <tr align="center">
+     <td><label>
+        <select name="select">
+           <option>No improvements</option>
+           <option>10%</option>
+           <option>20%</option>
+           <option>30%</option>
+           <option>40%</option>
+           <option>50%</option>
+           <option>60%</option>
+           <option>70%</option>
+           <option>80%</option>
+           <option>90%</option>
+           <option>completed</option>
+        </select>
+        </label> </td>
+    </tr>
+    <tr align="center">
+      <td><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Update" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

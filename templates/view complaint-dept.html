@@ -1,0 +1,74 @@
+{% extends 'indexdept.html' %}
+{% block body %}
+
+<body><head><style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*#customers tr:nth-child(even){background-color: #660066 ;}*/
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color:#660066 ;
+  color: white;
+}
+</style></head>
+<form id="form1" name="form1" method="post" action="searchDComplaint#team">
+  <table id="customers"  class="table" width="617" height="149" border="1" >
+    <tr>
+      <td>From Date: </td>
+      <td><label>
+        <input type="date" name="textfield" value="{{d1}}" />
+      </label></td>
+      <td>To Date : </td>
+      <td><label>
+        <input type="date" name="textfield2" value="{{d2}}" />
+      </label></td>
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Search" />
+      </label></td>
+    </tr>
+    <tr>
+      <th width="38">SI.No</th>
+      <th width="144">Date</th>
+      <th width="62">Complaint Photo</th>
+      <th width="144">User Name </th>
+      <th width="53">Location</th>
+      <th width="136">&nbsp;</th>
+    </tr>
+    {% for i in val%}
+    <tr>
+      <td height="99">{{forloop.counter}}</td>
+      <td>&nbsp;{{i.date}}</td>
+      <td>&nbsp;<img src="../media/{{i.complaint}}" width="140" height="120"></td>
+      <td>&nbsp;{{i.user}}</td>
+      <td>&nbsp;<a href="http://maps.google.com/maps?q={{i.lati}},{{i.longi}}">track location</a></td>
+      <td>
+       {% if i.reply == 'pending' %}
+
+        <p><a href="{% url 'assigncomplaintoff' id=i.id %}#team">Assign complaint To..</a></p>
+        {% else %}
+        <p>{{i.reply}}</p>     {% endif %}
+      <p>&nbsp;</p>
+
+
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+
+{% endblock %}
